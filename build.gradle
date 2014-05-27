@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Google Guava 
+    compile "com.google.guava:guava:17.0+"
+    
+    testCompile "junit:junit:4.11"
+}
