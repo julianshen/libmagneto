@@ -1,0 +1,4 @@
+libmagneto
+==========
+
+libmagneto
