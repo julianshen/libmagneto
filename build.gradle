@@ -1,4 +1,15 @@
 apply plugin: 'java'
+apply plugin: 'maven'
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: "file://maven_deploy")
+        pom {
+            version = '1.0.0'
+            artifactId = 'libmagneto'
+            groupId = 'org.mj.libmagneto'
+        }
+    }
+}
 
 repositories {
     mavenCentral()
