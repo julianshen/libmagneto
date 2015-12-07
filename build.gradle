@@ -1,18 +1,59 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+plugins {
+    id "com.jfrog.bintray" version "1.4"
+}
+
+
+repositories {
+    mavenCentral()
+}
+
 apply plugin: 'java'
-apply plugin: 'maven'
-uploadArchives {
-    repositories.mavenDeployer {
-        repository(url: "file://maven_deploy")
-        pom {
-            version = '1.0.0'
-            artifactId = 'libmagneto'
-            groupId = 'org.mj.libmagneto'
+apply plugin: 'maven-publish'
+
+sourceCompatibility = 1.5
+version = '1.0.1'
+
+bintray {
+    user = bintray_user
+    key = bintray_api_key
+
+    publications = ['main']
+
+    dryRun = false
+    publish = false 
+
+    pkg {
+        repo = 'maven'
+        name = 'libmagneto'
+        desc = 'A simple lib includes utilities used for bit torrent'
+        websiteUrl = 'https://github.com/julianshen/libmagneto'
+        issueTrackerUrl = 'https://github.com/julianshen/libmagneto'
+        vcsUrl = 'https://github.com/julianshen/libmagneto'
+        licenses = ['Apache-2.0']
+        labels = ['bittorrent']
+        publicDownloadNumbers = false
+
+        version {
+            name = project.version
         }
     }
 }
 
-repositories {
-    mavenCentral()
+publishing {
+    publications {
+        main(MavenPublication) {
+            from components.java
+            groupId 'wtf.cowbay'
+            artifactId 'libmagneto'
+            version project.version
+        }
+    }
 }
 
 dependencies {
