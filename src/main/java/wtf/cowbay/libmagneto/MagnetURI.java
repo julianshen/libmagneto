@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.mj.libmagneto;
+package wtf.cowbay.libmagneto;
 
 import java.util.ArrayList;
 import java.util.HashMap;

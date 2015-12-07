@@ -1,4 +1,4 @@
-package org.mj.libmagneto;
+package wtf.cowbay.libmagneto;
 
 import java.util.Arrays;
 
